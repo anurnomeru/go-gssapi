@@ -1,4 +1,4 @@
-module anurnomeru/go-gssapi/v2
+module github.com/anurnomeru/go-gssapi
 
 go 1.22.1
 
