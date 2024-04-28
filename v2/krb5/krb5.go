@@ -12,43 +12,43 @@ code that uses GSS-API would import the generic github.com/golang-auth/go-gssapi
 package instead and obtain a handle to this mechanism from the registry by
 passing the name "kerberos_v5" or the OID "1.2.840.113554.1.2.2", eg :
 
-Main Package
+# Main Package
 
 A relatively high-level package should include the mechanisms that the
 application is to use.  The idea is that the mechanisms that are supported
 in an application can be managed in one place, without changing any of
 the lower level code that uses the GSS-API functionality:
 
- package main
- import (
-	 _ "github.com/golang-auth/go-gssapi/v2/krb5"
-	 "stuff"
- )
+	 package main
+	 import (
+		 _ "github.com/golang-auth/go-gssapi/v2/krb5"
+		 "stuff"
+	 )
 
- stuff.doStuff("kerberos_v5")
+	 stuff.doStuff("kerberos_v5")
 
-
-Implementation package
+# Implementation package
 
 The package that uses GSS-API should accept the name of the mechanism to
 use, and use that name to obtain an instance of that mechanism-specific
 implementation:
 
- package stuff
- import "github.com/golang-auth/go-gssapi/v2"
+	package stuff
+	import "github.com/golang-auth/go-gssapi/v2"
 
- func doStuff(mech) {
- 	ctx := gssapi.NewMech(mech)
-    ...
- }
+	func doStuff(mech) {
+		ctx := gssapi.NewMech(mech)
+	   ...
+	}
 
-See Also
+# See Also
 
 github.com/golang-auth/go-gssapi/v2
 */
 package krb5
 
 import (
+	"anurnomeru/go-gssapi/v2"
 	"crypto/rand"
 	"encoding/binary"
 	"encoding/hex"
@@ -74,8 +74,7 @@ import (
 	"github.com/jcmturner/gokrb5/v8/messages"
 	"github.com/jcmturner/gokrb5/v8/types"
 
-	"github.com/golang-auth/go-gssapi/v2"
-	"github.com/golang-auth/go-gssapi/v2/common"
+	"anurnomeru/go-gssapi/v2/common"
 )
 
 func init() {
@@ -264,7 +263,7 @@ func (m *Krb5Mech) Accept(serviceName string) (err error) {
 // It is highly recommended to make use of mutual authentication wherever
 // possible and to include replay detection:
 //
-//  gssapi.ContextFlagMutual | gssapi.ContextFlagInteg  |gssapi.ContextFlagReplay
+//	gssapi.ContextFlagMutual | gssapi.ContextFlagInteg  |gssapi.ContextFlagReplay
 //
 // Most users should also include gssapi.ContextFlagConf to enable the use
 // of message sealing.

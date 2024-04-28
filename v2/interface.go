@@ -19,7 +19,7 @@ Wrap/Unwrap or MakeSignature/VerifySignature.
 */
 package gssapi
 
-import "github.com/golang-auth/go-gssapi/v2/common"
+import "anurnomeru/go-gssapi/v2/common"
 
 // Mech defines the interface to a GSS-API mechanism
 type Mech interface {
