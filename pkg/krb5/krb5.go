@@ -48,7 +48,6 @@ github.com/golang-auth/go-gssapi/v2
 package krb5
 
 import (
-	"anurnomeru/go-gssapi/v2"
 	"crypto/rand"
 	"encoding/binary"
 	"encoding/hex"
@@ -59,6 +58,8 @@ import (
 	"os"
 	"strings"
 	"time"
+
+	"github.com/anurnomeru/go-gssapi/pkg"
 
 	"github.com/jcmturner/gofork/encoding/asn1"
 	"github.com/jcmturner/gokrb5/crypto/etype"
@@ -74,7 +75,7 @@ import (
 	"github.com/jcmturner/gokrb5/v8/messages"
 	"github.com/jcmturner/gokrb5/v8/types"
 
-	"anurnomeru/go-gssapi/v2/common"
+	"github.com/anurnomeru/go-gssapi/pkg/common"
 )
 
 func init() {

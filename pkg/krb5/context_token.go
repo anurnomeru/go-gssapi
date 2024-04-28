@@ -19,10 +19,11 @@ import (
 	"fmt"
 	"net"
 
+	gssapi "github.com/anurnomeru/go-gssapi/pkg"
 	"github.com/jcmturner/gofork/encoding/asn1"
 	"github.com/jcmturner/gokrb5/v8/asn1tools"
 
-	"anurnomeru/go-gssapi/v2/common"
+	"github.com/anurnomeru/go-gssapi/pkg/common"
 
 	"github.com/jcmturner/gokrb5/v8/messages"
 )
